@@ -1,4 +1,4 @@
-(function () {
+(function (w, def, mod, undefined) {
     function Logger() {
         var _on = false, _tab = '';
 
@@ -167,7 +167,18 @@
         };
     }
 
-    if (define) {
-        define([], Logger);
+    // used for requirejs define
+    if (def) {
+        def([], Logger);
     }
-})(window);
+    
+    // used for node's require
+    if (mod) {
+        mod = Logger
+    }
+    
+    // if all else fails try to bing directory to the window for web contexts
+    if (!def && !mod && w){
+        w.logger = new Logger();
+    }
+})(window, define, module);
