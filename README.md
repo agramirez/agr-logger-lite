@@ -46,6 +46,8 @@ Download from github and include it somewhere in your application.  Reference it
 
 # Application Programming Interface
 
+1.- (logger.on)[#loggeron]
+
 ## logger.on()
 
 Turns logging on.  Logging is off by default so unless the default configurations are changed no messages will be displayed until this function is called.
