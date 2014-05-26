@@ -101,8 +101,35 @@ Displays a message stating which function, code block, module, etc. is being cal
   }
 ```
 
+## logger.msg(message)
 
+Displays the specified message.  It uses any indentations created by calling logger.start() and logger.end() to display the output in an easier to read way.  That is, we can tell what code block a message belongs to by seeing its indentation level.  This is useful when view output from multiple function calls.
 
+**Parameters**
+1. message, String: Any message we want to log
+
+**Example**
+
+```javascript
+  logger.msg('this is my message');
+```
+
+## logger.val(vals) 
+
+This function takes in an object and recursively displays it's properties.  The output shows the property name and value for each of the object properties.
+
+**Parameters**
+1. vals, Object: Object for which to display values.  Each object property corresponds to a key/value pair.
+
+**Example**
+
+```javascript
+  var point = { x: 10, y: 20 };
+  
+  logger.val({ my: '1st value', with: '2nd value', and: { some: 'other', nested: 'value' }});
+  logger.val(point);
+
+```
 
 
 
