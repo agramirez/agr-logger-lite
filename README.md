@@ -3,6 +3,11 @@ agr-logger-web
 
 Simple logger defined with requirejs.  Useful for logging and can be modified for use in other environments like node.
 
+# Table of Contents
+
+1. [Quickstart](#quickstart)
+2. [API Reference](#apireference)
+
 # Quickstart 
 
 Download from github and include it somewhere in your application.  Reference it with RequireJS and you are set to go.
@@ -44,16 +49,16 @@ Download from github and include it somewhere in your application.  Reference it
   });
 ```
 
-# Application Programming Interface
+# API Reference
 
 1. [logger.on](#loggeron)
 2. [logger.off](#loggeroff)
-3. [logger.start](#loggerstart)
-4. [logger.end](#loggerend)
-4. [logger.msg](#loggermsg)
-4. [logger.val](#loggerval)
-4. [logger.startOn](#loggerstarton)
-4. [logger.endOff](#loggerendoff)
+3. [logger.start](#loggerstartname)
+4. [logger.end](#loggerendname)
+4. [logger.msg](#loggermsgmsg)
+4. [logger.val](#loggervalvals)
+4. [logger.startOn](#loggerstartonname)
+4. [logger.endOff](#loggerendoffname)
 
 ## logger.on()
 
@@ -71,6 +76,8 @@ Turns logging on.  Logging is off by default so unless the default configuration
   logger.msg('do not show me'); // will not display
 ```
 
+[back to api list](#apireference) | [back to top](#tableofcontents)
+
 ## logger.off()
 
 Turns logging off.  No log messages will be displayed after this function is called unless logger.on() is called again.
@@ -86,6 +93,8 @@ Turns logging off.  No log messages will be displayed after this function is cal
   
   logger.msg('do not show me'); // will not display
 ```
+
+[back to api list](#apireference) | [back to top](#tableofcontents)
 
 ## logger.start(name)
 
@@ -110,6 +119,8 @@ Displays a message stating which function, code block, module, etc. is being cal
   }
 ```
 
+[back to api list](#apireference) | [back to top](#tableofcontents)
+
 ## logger.end(name)
 
 Displays a message stating that a code block or function call has ended.  It's pripary purpose is to help identify output by adding tab spacing and other features to make it look nice.  
@@ -133,6 +144,8 @@ Displays a message stating that a code block or function call has ended.  It's p
   }
 ```
 
+[back to api list](#apireference) | [back to top](#tableofcontents)
+
 ## logger.msg(message)
 
 Displays the specified message.  It uses any indentations created by calling logger.start() and logger.end() to display the output in an easier to read way.  That is, we can tell what code block a message belongs to by seeing its indentation level.  This is useful when view output from multiple function calls.
@@ -145,6 +158,8 @@ Displays the specified message.  It uses any indentations created by calling log
 ```javascript
   logger.msg('this is my message');
 ```
+
+[back to api list](#apireference) | [back to top](#tableofcontents)
 
 ## logger.val(vals) 
 
@@ -162,6 +177,8 @@ This function takes in an object and recursively displays it's properties.  The 
   logger.val(point);
 
 ```
+
+[back to api list](#apireference) | [back to top](#tableofcontents)
 
 ## logger.startOn(name)
 
@@ -186,6 +203,8 @@ Displays the start of a code block or function just like logger.start().  Howeve
   myFunctionName(); // will display all messages inside myFunctionName
 ```
 
+[back to api list](#apireference) | [back to top](#tableofcontents)
+
 ## logger.endOff(name)
 
 Displays the end of a code block or function just like logger.end().  However, this function also implicitely calls logger.off().  This is useful if we want to turn debugging off after a specific code block initiated with logger.startOn().
@@ -209,6 +228,8 @@ Displays the end of a code block or function just like logger.end().  However, t
   myFunctionName(); // will display all messages inside myFunctionName
   logger.msg('this will not show'); // not shown because we called logger.endOff() inside our function
 ```
+
+[back to api list](#apireference) | [back to top](#tableofcontents)
 
 
 
