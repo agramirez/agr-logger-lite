@@ -43,3 +43,67 @@ Download from github and include it somewhere in your application.  Reference it
     logger.msg('this message will never be seen'); // does not get displayed because logging was turned off
   });
 ```
+
+# Application Programming Interface
+
+## logger.on()
+
+Turns logging on.  Logging is off by default so unless the default configurations are changed no messages will be displayed until this function is called.
+
+** Example **
+
+```javascript
+  logger.on();
+  
+  logger.msg('show me'); // will display
+  
+  logger.off();
+  
+  logger.msg('do not show me'); // will not display
+```
+
+## logger.off()
+
+Turns logging off.  No log messages will be displayed after this function is called unless logger.on() is called again.
+
+** Example ** 
+
+```javascript
+  logger.on();
+  
+  logger.msg('show me'); // will display
+  
+  logger.off();
+  
+  logger.msg('do not show me'); // will not display
+```
+
+## logger.start(name)
+
+Displays a message stating which function, code block, module, etc. is being called.  It's pripary purpose is to help identify output by adding tab spacing and other features to make it look nice.  
+
+> Note that it is important to always call logger.end(name) at some point so spacing can be accurately preserved.
+
+** Parameters **
+
+1. name, String
+  Name of the function or code block being executed.  Can be blank.
+
+** Example ***
+
+```javascript
+  function myFunctionName() {
+    logger.start('myFunctionName');
+   
+    logger.start('important code block');
+    // do something important
+    logger.end('imprtant code block');
+    logger.end('myFunctionName');
+  }
+```
+
+
+
+
+
+
