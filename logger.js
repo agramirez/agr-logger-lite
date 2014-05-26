@@ -125,7 +125,7 @@
                 // display value of each property
                 for (var p in vals) {
                     // if the property is an object call this function on that object
-                    if (typeof vals[p] == '[object]') {
+                    if (typeof vals[p] == 'object') {
                         this.val(vals[p])
                     } else {
                         // for simple values display the data
