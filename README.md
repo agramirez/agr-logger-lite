@@ -78,7 +78,7 @@ Turns logging on.  Logging is off by default so unless the default configuration
   logger.msg('do not show me'); // will not display
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.off()
 
@@ -96,7 +96,7 @@ Turns logging off.  No log messages will be displayed after this function is cal
   logger.msg('do not show me'); // will not display
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.start(name)
 
@@ -121,7 +121,7 @@ Displays a message stating which function, code block, module, etc. is being cal
   }
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.end(name)
 
@@ -146,7 +146,7 @@ Displays a message stating that a code block or function call has ended.  It's p
   }
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.msg(msg)
 
@@ -161,7 +161,7 @@ Displays the specified message.  It uses any indentations created by calling log
   logger.msg('this is my message');
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.val(vals) 
 
@@ -180,7 +180,7 @@ This function takes in an object and recursively displays it's properties.  The 
 
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.startOn(name)
 
@@ -205,7 +205,7 @@ Displays the start of a code block or function just like logger.start().  Howeve
   myFunctionName(); // will display all messages inside myFunctionName
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 ## logger.endOff(name)
 
@@ -231,7 +231,7 @@ Displays the end of a code block or function just like logger.end().  However, t
   logger.msg('this will not show'); // not shown because we called logger.endOff() inside our function
 ```
 
-[back to api list](#apireference) | [back to top](#table-of-contents)
+[back to api reference](#api-reference) | [back to top](#table-of-contents)
 
 
 
