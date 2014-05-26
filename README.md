@@ -146,12 +146,12 @@ Displays a message stating that a code block or function call has ended.  It's p
 
 [back to api list](#apireference) | [back to top](#tableofcontents)
 
-## logger.msg(message)
+## logger.msg(msg)
 
 Displays the specified message.  It uses any indentations created by calling logger.start() and logger.end() to display the output in an easier to read way.  That is, we can tell what code block a message belongs to by seeing its indentation level.  This is useful when view output from multiple function calls.
 
 **Parameters**
-1. message, String: Any message we want to log
+1. msg, String: Any message we want to log
 
 **Example**
 
