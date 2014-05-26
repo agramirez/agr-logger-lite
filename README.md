@@ -86,8 +86,7 @@ Displays a message stating which function, code block, module, etc. is being cal
 
 **Parameters**
 
-1. name, String
-  Name of the function or code block being executed.  Can be blank.
+1. name, String: Name of the function or code block being executed.  Can be blank.
 
 **Example**
 
