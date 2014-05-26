@@ -50,7 +50,7 @@ Download from github and include it somewhere in your application.  Reference it
 
 Turns logging on.  Logging is off by default so unless the default configurations are changed no messages will be displayed until this function is called.
 
-** Example **
+**Example**
 
 ```javascript
   logger.on();
@@ -66,7 +66,7 @@ Turns logging on.  Logging is off by default so unless the default configuration
 
 Turns logging off.  No log messages will be displayed after this function is called unless logger.on() is called again.
 
-** Example ** 
+**Example** 
 
 ```javascript
   logger.on();
@@ -84,12 +84,12 @@ Displays a message stating which function, code block, module, etc. is being cal
 
 > Note that it is important to always call logger.end(name) at some point so spacing can be accurately preserved.
 
-** Parameters **
+**Parameters**
 
 1. name, String
   Name of the function or code block being executed.  Can be blank.
 
-** Example ***
+**Example**
 
 ```javascript
   function myFunctionName() {
