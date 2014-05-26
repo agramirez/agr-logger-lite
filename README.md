@@ -131,5 +131,52 @@ This function takes in an object and recursively displays it's properties.  The 
 
 ```
 
+## logger.startOn(name)
+
+Displays the start of a code block or function just like logger.start().  However, this function also implicitely calls logger.on() so that any messages after this call are always displayed (regardless of whether or not logger.off() was previously called).
+
+**Parameters**
+
+1. name, String: Name of the function or code block being executed.  Can be blank.
+
+**Example**
+
+```javascript
+  function myFunctionName() {
+    logger.startOn('myFunctionName');
+   
+    logger.msg('this will always be shown');
+   
+    logger.endOff('myFunctionName');
+  }
+  
+  logger.off();
+  myFunctionName(); // will display all messages inside myFunctionName
+```
+
+## logger.endOff(name)
+
+Displays the end of a code block or function just like logger.end().  However, this function also implicitely calls logger.off().  This is useful if we want to turn debugging off after a specific code block initiated with logger.startOn().
+
+**Parameters**
+
+1. name, String: Name of the function or code block being executed.  Can be blank.
+
+**Example**
+
+```javascript
+  function myFunctionName() {
+    logger.startOn('myFunctionName');
+   
+    logger.msg('this will always be shown');
+   
+    logger.endOff('myFunctionName');
+  }
+  
+  logger.off();
+  myFunctionName(); // will display all messages inside myFunctionName
+  logger.msg('this will not show'); // not shown because we called logger.endOff() inside our function
+```
+
 
 
