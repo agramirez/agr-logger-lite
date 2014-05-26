@@ -3,40 +3,67 @@
         var _on = false, _tab = '';
 
         return {
+            /** 
+             * @description Exposes internal properties for testing purposes...poke around in hee at your own riks 
+             */
             expose: {
                 log: function (msg) {
                     // do not display log message if logging is not on
                     if (!_on) { return false; }
 
                     console.log(msg);
-                }
+                },
+                on: _on,
+                tab: _tab
             },
+            /** 
+             * @description Checks if logger is on or off.
+             * @returns True if on, false otherwise.
+             */
             isOn: function () {
                 return _on;
             },
+            /** 
+             * @description Checks if logger is on or off.
+             * @returns True if off, false otherwise.
+             */
             isOff: function () {
                 return !_on;
             },
+            /** 
+             * @description Turns logging output on.
+             * @returns Reference to this.
+             */
             on: function () {
                 _tab = '';
                 _on = true;
 
                 return this;
             },
+            /** 
+             * @description Turns logging output off.
+             * @returns Reference to this.
+             */
             off: function () {
                 _tab = '';
                 _on = false;
 
                 return this;
             },
+            /** 
+             * @description Logs output messages regardless of whether or not logging is on.
+             * @returns Reference to this.
+             */
             log: function (msg) {
-                // don't do anything if logging is off...it saves cpu cycles
-                if (this.isOff()) { return this; }
-
                 this.expose.log(_tab + msg);
 
                 return this;
             },
+            /** 
+             * @description Logs output messages if loggin is on.
+             * @param {String} [msg] Message to log.
+             * @returns Reference to this.
+             */
             msg: function (msg) {
                 // don't do anything if logging is off...it saves cpu cycles
                 if (this.isOff()) { return this; }
@@ -45,6 +72,12 @@
 
                 return this;
             },
+            /** 
+             * @description Displays the start of a code block and indents any subsequent messages.  
+             *              Displays output only when loggin is on.
+             * @param {String} [name] Name of the function or code block being started.
+             * @returns Reference to this.
+             */
             start: function (name) {
                 // don't do anything if logging is off...it saves cpu cycles
                 if (this.isOff()) { return this; }
@@ -60,6 +93,12 @@
 
                 return this;
             },
+            /** 
+             * @description Displays the end of a code block and indents any subsequent messages.  
+             *              Displays output only when loggin is on.
+             * @param {String} [name] Name of the function or code block being ended.
+             * @returns Reference to this.
+             */
             end: function (name) {
                 // don't do anything if logging is off...it saves cpu cycles
                 if (this.isOff()) { return this; }
@@ -74,6 +113,11 @@
 
                 return this;
             },
+            /** 
+             * @description Displays the properties of the vals parameter as name/value pairs..
+             * @param {Object} [vals] Object with properties to be displayed..
+             * @returns Reference to this.
+             */
             val: function (vals) {
                 // don't do anything if logging is off...it saves cpu cycles
                 if (this.isOff()) { return this; }
@@ -91,6 +135,14 @@
 
                 return this;
             },
+            /** 
+             * @description Displays the start of a code block and indents any subsequent messages.
+             *              It also implicitly calls logger.on() to turn on any subsequent messages.
+             *              Always displays ouput and any messages after calling this function will also
+             *              be displayed.
+             * @param {String} [name] Name of the function or code block being started.
+             * @returns Reference to this.
+             */
             startOn: function (name) {
                 // turn debugging on and set function start
                 this.on();
@@ -98,6 +150,13 @@
 
                 return this;
             },
+            /** 
+             * @description Displays the end of a code block and indents any subsequent messages.
+             *              It also implicitly calls logger.off() to stop any subsequent messages from 
+             *              being displayed.  Displays output only when loggin is on.
+             * @param {String} [name] Name of the function or code block being ended.
+             * @returns Reference to this.
+             */
             endOff: function (name) {
                 // set function end and turn debugging off
                 this.end(name);
