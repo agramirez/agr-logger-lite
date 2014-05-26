@@ -46,7 +46,14 @@ Download from github and include it somewhere in your application.  Reference it
 
 # Application Programming Interface
 
-1.- (logger.on)[#loggeron]
+1. [logger.on](#loggeron)
+2. [logger.off](#loggeroff)
+3. [logger.start](#loggerstart)
+4. [logger.end](#loggerend)
+4. [logger.msg](#loggermsg)
+4. [logger.val](#loggerval)
+4. [logger.startOn](#loggerstarton)
+4. [logger.endOff](#loggerendoff)
 
 ## logger.on()
 
@@ -85,6 +92,29 @@ Turns logging off.  No log messages will be displayed after this function is cal
 Displays a message stating which function, code block, module, etc. is being called.  It's pripary purpose is to help identify output by adding tab spacing and other features to make it look nice.  
 
 > Note that it is important to always call logger.end(name) at some point so spacing can be accurately preserved.
+
+**Parameters**
+
+1. name, String: Name of the function or code block being executed.  Can be blank.
+
+**Example**
+
+```javascript
+  function myFunctionName() {
+    logger.start('myFunctionName');
+   
+    logger.start('important code block');
+    // do something important
+    logger.end('imprtant code block');
+    logger.end('myFunctionName');
+  }
+```
+
+## logger.end(name)
+
+Displays a message stating that a code block or function call has ended.  It's pripary purpose is to help identify output by adding tab spacing and other features to make it look nice.  
+
+> Note that it is important to always call logger.start() before logger.end() so spacing can be accurately preserved.
 
 **Parameters**
 
