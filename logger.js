@@ -168,17 +168,17 @@
     }
 
     // used for requirejs define
-    if (define) {
+    if (define !== undefined && define !== null) {
         define([], Logger);
     }
 
     // used for node's require
-    if (module) {
+    if (module !== undefined && module !== null) {
         module = Logger
     }
 
     // if all else fails try to bing directory to the window for web contexts
-    if (!define && !module && w) {
+    if (define === undefined && module === undefined && w !== undefined) {
         w.logger = new Logger();
     }
 })(window);
